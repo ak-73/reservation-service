@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "reservation.dto.consumer",
+      "type": "com.example.demo.ReservationServiceProperties",
+      "sourceType": "com.example.demo.ReservationServiceProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "reservation.dto.consumer.topic",
+      "type": "java.lang.String",
+      "sourceType": "com.example.demo.ReservationServiceProperties"
+    }
+  ],
+  "hints": []
+}

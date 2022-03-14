@@ -1,29 +1,32 @@
 package com.example.demo.configurations;
 
+import java.util.Collections;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.core.reactive.ReactiveKafkaConsumerTemplate;
 
-//import com.example.demo.controller.ReservationRESTController;
-//import com.example.demo.repositories.ReservationRepository;
-import com.mongodb.reactivestreams.client.MongoDatabase;
+import com.example.demo.dtos.ReservationDTO;
 
+import reactor.kafka.receiver.ReceiverOptions;
+
+@Configuration
 public class ReservationConfiguration
 {
-	/*
 	@Bean
-	ReservationRESTController createReservationRESTController(ReservationRepository repository)
+	public ReceiverOptions<String, ReservationDTO> createReceiverOptions(@Value(value = "${reservation.dto.consumer.topic}") String topic,
+			KafkaProperties kafkaProperties)
 	{
-		return new ReservationRESTController(repository);
+		ReceiverOptions<String, ReservationDTO> basicReceiverOptions = ReceiverOptions.create(kafkaProperties.buildConsumerProperties());
+		return basicReceiverOptions.subscription(Collections.singletonList(topic));
 	}
 	
 	@Bean
-	ReservationRepository createReservationRepository(MongoDatabase database)
+	public ReactiveKafkaConsumerTemplate<String, ReservationDTO> createReactiveKafkaConsumerTemplate(
+			ReceiverOptions<String, ReservationDTO> kafkaReceiverOptions)
 	{
-		return new ReservationRepository(database);
-	}*/
-	
-	@Bean
-	MongoDatabase createDatabase()
-	{
-		return null;
+		return new ReactiveKafkaConsumerTemplate<String, ReservationDTO>(kafkaReceiverOptions);
 	}
 }

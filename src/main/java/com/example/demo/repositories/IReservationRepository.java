@@ -6,5 +6,5 @@ import com.example.demo.model.Reservation;
 
 public interface IReservationRepository extends ReactiveMongoRepository<Reservation, Integer>
 {
-	//Flux<Reservation> findByName(String reservationName);
+	
 }

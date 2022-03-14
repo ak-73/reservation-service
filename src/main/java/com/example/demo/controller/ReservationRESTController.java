@@ -4,11 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dtos.ReservationDTO;
 import com.example.demo.model.Reservation;
 import com.example.demo.repositories.IReservationRepository;
-//import com.example.demo.repositories.ReservationRepository;
+import com.example.demo.service.ReservationService;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -19,26 +21,31 @@ public class ReservationRESTController
 	// FIELDS
 	Logger logger = LoggerFactory.getLogger(ReservationRESTController.class);
 	private final IReservationRepository reservationRepo;
-
-	public ReservationRESTController(IReservationRepository reservationRepo)
+	private final ReservationService reservationService;
+	
+	
+	// CONSTRUCTORS
+	public ReservationRESTController(IReservationRepository reservationRepo, ReservationService reservationService)
 	{
 		super();
 		this.reservationRepo = reservationRepo;
+		this.reservationService = reservationService;
 	}
 	
+	// ENDPOINTS
 	@GetMapping("/reservations")
 	Flux<Reservation> retrieveAllReservations()
 	{
-		//return reservationRepo.retrieveAllReservations();
 		logger.info("retrieveAllReservations() called");
 		return reservationRepo.findAll();
 	}
 	
-	@PostMapping("")
-	Mono<Reservation> createReservationFor()
+	@PostMapping("/book_room")
+	Mono<Reservation> createReservationFor(@RequestBody ReservationDTO reservation)
 	{
-		//return reservationRepo.retrieveAllReservations();
 		logger.info("createReservationFor() called");
-		return null;
+		return reservationService.findSuitableLodgingsReactively(reservation);
 	}
+
+
 }

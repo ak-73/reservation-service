@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Address
 {
+	// FIELDS
 	String streetName;
 	int streetNumber;
 	int postalCode;
@@ -14,6 +15,8 @@ public class Address
 	String state;
 	String country;
 	
+	
+	// CONSTRUCTORS
 	public Address(String streetName, int streetNumber, int postalCode, String postalRegionName)
 	{
 		super();
@@ -24,73 +27,76 @@ public class Address
 		state = "NRW";
 		country = "Germany";
 	}
-
+	
+	
+	
+	// BOILERPLATE
 	public String getStreetName()
 	{
 		return streetName;
 	}
-
+	
 	public void setStreetName(String streetName)
 	{
 		this.streetName = streetName;
 	}
-
+	
 	public int getStreetNumber()
 	{
 		return streetNumber;
 	}
-
+	
 	public void setStreetNumber(int streetNumber)
 	{
 		this.streetNumber = streetNumber;
 	}
-
+	
 	public int getPostalCode()
 	{
 		return postalCode;
 	}
-
+	
 	public void setPostalCode(int postalCode)
 	{
 		this.postalCode = postalCode;
 	}
-
+	
 	public String getPostalRegionName()
 	{
 		return postalRegionName;
 	}
-
+	
 	public void setPostalRegionName(String postalRegionName)
 	{
 		this.postalRegionName = postalRegionName;
 	}
-
+	
 	public String getState()
 	{
 		return state;
 	}
-
+	
 	public void setState(String state)
 	{
 		this.state = state;
 	}
-
+	
 	public String getCountry()
 	{
 		return country;
 	}
-
+	
 	public void setCountry(String country)
 	{
 		this.country = country;
 	}
-
+	
 	@Override
 	public int hashCode()
 	{
 		return Objects.hash(country, postalCode, postalRegionName, state, streetName, streetNumber);
 	}
-
+	
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -101,12 +107,12 @@ public class Address
 		return Objects.equals(country, other.country) && postalCode == other.postalCode && Objects.equals(postalRegionName, other.postalRegionName)
 				&& Objects.equals(state, other.state) && Objects.equals(streetName, other.streetName) && streetNumber == other.streetNumber;
 	}
-
+	
 	@Override
 	public String toString()
 	{
-		return "Address [streetName=" + streetName + ", streetNumber=" + streetNumber + ", postalCode=" + postalCode + ", postalRegionName=" + postalRegionName
-				+ ", state=" + state + ", country=" + country + "]";
+		return "Address [street=" + streetName + " " + streetNumber + ", postal=" + postalCode + " " + postalRegionName + ", state=" + state + ", country="
+				+ country + "]";
 	}
 	
 }

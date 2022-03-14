@@ -11,23 +11,19 @@ import reactor.core.publisher.Flux;
 @Repository
 public class ReservationRepository
 {
-	/*
-	private final MongoDatabase database;
-
-	public ReservationRepository(MongoDatabase database)
-	{
-		super();
-		this.database = database;
-	}*/
-	
+	// FIELDS
 	private final ReactiveMongoTemplate mongoTemplate;
 	
+	
+	// CONSTRUCTORS
 	public ReservationRepository(ReactiveMongoTemplate mongoTemplate)
 	{
 		super();
 		this.mongoTemplate = mongoTemplate;
 	}
-
+	
+	
+	// MAIN METHODS
 	public Flux<Reservation> retrieveAllReservations()
 	{
 		return mongoTemplate.findAll(Reservation.class);

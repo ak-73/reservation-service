@@ -67,21 +67,26 @@
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
             <!-- Getting a java.lang.reflect.InaccessibleObjectException if we're not using a newer version than the managed version 3.0.0 -->
-			<version>3.4.3</version>             
+			<version>3.4.3</version><!--$NO-MVN-MAN-VER$-->             
         </dependency>
         <dependency>
             <groupId>cz.jirutka.spring</groupId>
             <artifactId>embedmongo-spring</artifactId>
-            <version>RELEASE</version>
+            <version>1.3.1</version>
         </dependency>
-<!--         <dependency> -->
-<!--             <groupId>org.springframework.kafka</groupId> -->
-<!--             <artifactId>spring-kafka</artifactId> -->
-<!--         </dependency> -->
-<!--         <dependency> -->
-<!--             <groupId>io.projectreactor.kafka</groupId> -->
-<!--             <artifactId>reactor-kafka</artifactId> -->
-<!--         </dependency> -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.projectreactor.kafka</groupId>
+            <artifactId>reactor-kafka</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-configuration-processor</artifactId>
+        	<optional>true</optional>
+        </dependency>
 	</dependencies>
 
 	<build>

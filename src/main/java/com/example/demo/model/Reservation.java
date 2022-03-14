@@ -8,23 +8,25 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Reservation
 {
-	//FIELDS
+	// FIELDS
 	@Id
-	private int id;	
+	private int id;
 	private String title;
 	private String firstName;
-	private String lastName;	
+	private String lastName;
 	private Hotel hotel;
 	private int roomNo;
 	LocalDate checkInDate;
 	LocalDate checkOutDate;
 	
-	//CONSTRUCTORS
+	
+	
+	// CONSTRUCTORS
 	public Reservation()
 	{
 		super();
 	}
-
+	
 	
 	public Reservation(int id, String title, String firstName, String lastName, Hotel hotel, int roomNo, LocalDate checkInDate, LocalDate checkOutDate)
 	{
@@ -38,20 +40,16 @@ public class Reservation
 		this.checkInDate = checkInDate;
 		this.checkOutDate = checkOutDate;
 	}
-
 	
 	
 	
-
 	
-
-
-	//BOILERPLATE
+	// BOILERPLATE
 	public int getId()
 	{
 		return id;
 	}
-
+	
 	public void setId(int id)
 	{
 		this.id = id;
@@ -61,7 +59,7 @@ public class Reservation
 	{
 		return title;
 	}
-
+	
 	public String getFirstName()
 	{
 		return firstName;
@@ -71,17 +69,17 @@ public class Reservation
 	{
 		this.firstName = firstName;
 	}
-
+	
 	public String getLastName()
 	{
 		return lastName;
 	}
-
+	
 	public void setLastName(String lastName)
 	{
 		this.lastName = lastName;
 	}
-
+	
 	public void setTitle(String title)
 	{
 		this.title = title;
@@ -91,43 +89,43 @@ public class Reservation
 	{
 		return hotel;
 	}
-
+	
 	public void setHotel(Hotel hotel)
 	{
 		this.hotel = hotel;
 	}
-
+	
 	public int getRoomNo()
 	{
 		return roomNo;
 	}
-
+	
 	public void setRoomNo(int roomNo)
 	{
 		this.roomNo = roomNo;
 	}
-
+	
 	public LocalDate getCheckInDate()
 	{
 		return checkInDate;
 	}
-
+	
 	public void setCheckInDate(LocalDate checkInDate)
 	{
 		this.checkInDate = checkInDate;
 	}
-
+	
 	public LocalDate getCheckOutDate()
 	{
 		return checkOutDate;
 	}
-
+	
 	public void setCheckOutDate(LocalDate checkOutDate)
 	{
 		this.checkOutDate = checkOutDate;
 	}
-
-
+	
+	
 	@Override
 	public String toString()
 	{
@@ -135,12 +133,12 @@ public class Reservation
 				+ ", checkInDate=" + checkInDate + ", checkOutDate=" + checkOutDate + "]";
 	}
 	
-
 	
-
 	
-
 	
-
+	
+	
+	
+	
 	
 }
